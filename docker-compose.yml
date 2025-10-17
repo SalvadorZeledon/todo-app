@@ -33,9 +33,14 @@ services:
       DB_NAME: ${POSTGRES_DB}
       DB_PORT: 5432
       PORT: 3000
-    # (Opcional) Descomenta para desarrollo con hot reload
-    # volumes:
-    #   - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    container_name: todo_frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
 
 volumes:
   postgres_data:
