@@ -81,14 +81,38 @@ En esta parte se validó la correcta comunicación entre los servicios y la func
 - Verificación de persistencia de datos después de reiniciar los contenedores.
 - Inspección de logs de backend y base de datos.
 
-Ejemplo de comandos:
-
 ```bash
 docker compose logs -f backend
-curl http://localhost:3000/tasks
 ```
 
 <img width="646" height="37" alt="image" src="https://github.com/user-attachments/assets/c867277f-6cc3-4591-a722-b15b97ddfc71" />
+
+```bash
+curl http://localhost:3000/tasks
+```
+
+<img width="1893" height="65" alt="image" src="https://github.com/user-attachments/assets/a2db99c7-1200-425c-8ed0-7ce038a86683" />
+
+- Para agregar una nueva tarea:
+```bash
+curl -X POST http://localhost:3000/tasks \
+     -H "Content-Type: application/json" \
+     -d '{"title": "Mi primera tarea desde terminal"}'
+
+```
+
+- Esto debe retornar algo parecido a esto: 
+```bash
+{"id":1,"title":"Mi primera tarea desde terminal","completed":false}
+
+```
+
+- Así se ve ejecutandose:
+  
+<img width="1394" height="47" alt="image" src="https://github.com/user-attachments/assets/0cdbfa91-96ae-4fc4-bc2a-6efa6513a20e" />
+
+
+
 
 
 ### 🔹 Vista desde el FrontEnd: 
